@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maison de L'essence - Luxury Perfumes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-light': '#f0ece2',
+                        'brand-cream': '#dfd3c3',
+                        'brand-taupe': '#c7b198',
+                        'brand-gray': '#596e79',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-brand-light">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-semibold text-brand-gray">
+                    MAISON DE L'ESSENCE
+                </div>
+                <div class="space-x-8">
+                    <a href="#" class="text-brand-gray hover:text-brand-taupe">Collections</a>
+                    <a href="#" class="text-brand-gray hover:text-brand-taupe">About Us</a>
+                    <a href="#" class="text-brand-gray hover:text-brand-taupe">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <div class="relative h-[80vh] bg-[url('https://images.unsplash.com/photo-1615397349754-cfa2066a298e?ixlib=rb-4.0.3')] bg-cover bg-center">
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center text-white">
+                <h1 class="text-5xl font-light mb-4">The Soul Distillation Ritual</h1>
+                <p class="text-xl font-light">Where luxury meets personal expression</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Collections Grid -->
+    <section class="container mx-auto px-6 py-16">
+        <h2 class="text-4xl text-center text-brand-gray mb-16">Our Collections</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- The Soul Distillation Ritual -->
+            <div class="bg-white p-8 shadow-lg">
+                <h3 class="text-2xl text-brand-gray mb-4">The Soul Distillation Ritual</h3>
+                <p class="text-brand-taupe mb-2">Ultra-Luxury Bespoke</p>
+                <p class="text-sm text-brand-gray mb-4">A completely personalized journey into the art of perfumery</p>
+                <p class="text-brand-gray font-semibold">$8,000–$25,000</p>
+            </div>
+
+            <!-- Signature Silhouettes -->
+            <div class="bg-white p-8 shadow-lg">
+                <h3 class="text-2xl text-brand-gray mb-4">Signature Silhouettes</h3>
+                <p class="text-brand-taupe mb-2">Semi-Bespoke</p>
+                <p class="text-sm text-brand-gray mb-4">Curated fragrances tailored to your preferences</p>
+                <p class="text-brand-gray font-semibold">$1,200–$3,000</p>
+            </div>
+
+            <!-- Les Archives Éphémères -->
+            <div class="bg-white p-8 shadow-lg">
+                <h3 class="text-2xl text-brand-gray mb-4">Les Archives Éphémères</h3>
+                <p class="text-brand-taupe mb-2">Limited Editions</p>
+                <p class="text-sm text-brand-gray mb-4">Exclusive collections inspired by rare moments</p>
+                <p class="text-brand-gray font-semibold">$750–$1,800</p>
+            </div>
+
+            <!-- The Initiation Series -->
+            <div class="bg-white p-8 shadow-lg">
+                <h3 class="text-2xl text-brand-gray mb-4">The Initiation Series</h3>
+                <p class="text-brand-taupe mb-2">Discovery Sets</p>
+                <p class="text-sm text-brand-gray mb-4">Begin your journey into luxury perfumery</p>
+                <p class="text-brand-gray font-semibold">$250–$500</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="bg-brand-cream py-16">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-4xl text-brand-gray mb-8">About Maison de L'essence</h2>
+                <p class="text-lg text-brand-gray leading-relaxed">
+                    At Maison de L'essence, we craft more than perfumes – we create olfactory masterpieces that tell your unique story. Our atelier, nestled in the heart of Europe, combines centuries-old perfumery traditions with modern innovation to create bespoke fragrances that are as unique as their wearers.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-gray text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl mb-4">Contact</h3>
+                    <p>contact@maisonlessence.com</p>
+                    <p>+44 (0) 20 7123 4567</p>
+                </div>
+                <div>
+                    <h3 class="text-xl mb-4">Location</h3>
+                    <p>By appointment only</p>
+                    <p>London • Paris • Milan</p>
+                </div>
+                <div>
+                    <h3 class="text-xl mb-4">Follow Us</h3>
+                    <p>Instagram</p>
+                    <p>Pinterest</p>
+                </div>
+            </div>
+            <div class="text-center mt-8 text-sm">
+                <p>© 2024 Maison de L'essence. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 
