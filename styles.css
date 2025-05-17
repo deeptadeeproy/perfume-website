@@ -26,7 +26,7 @@ body {
     justify-content: center;
     text-align: center;
     color: white;
-    background-image: url('https://lelabo.ips.photos/lelabo-java/images/categories/315_LARGE_IMAGE_02_7416_-2134532831.jpg');
+    background-image: url('assets/aesop_lab.avif');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -138,7 +138,7 @@ body {
 
 .feature-image {
     width: 100%;
-    height: 500px;
+    height: 100%;
     object-fit: cover;
 }
 
