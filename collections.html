@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections - Maison de L'essence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-light': '#f0ece2',
+                        'brand-cream': '#dfd3c3',
+                        'brand-taupe': '#c7b198',
+                        'brand-gray': '#596e79',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-brand-light">
+    <!-- Navigation (same as index.html) -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-semibold text-brand-gray">
+                    MAISON DE L'ESSENCE
+                </div>
+                <div class="space-x-8">
+                    <a href="collections.html" class="text-brand-gray hover:text-brand-taupe">Collections</a>
+                    <a href="#" class="text-brand-gray hover:text-brand-taupe">About Us</a>
+                    <a href="#" class="text-brand-gray hover:text-brand-taupe">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="w-full min-h-screen flex flex-col items-center justify-center bg-brand-cream relative overflow-hidden">
+        <h1 class="text-5xl md:text-6xl font-bold text-brand-gray mb-4 tracking-wide">Our Collections</h1>
+        <p class="text-xl md:text-2xl text-brand-taupe max-w-2xl text-center mb-12">Discover the essence of luxury through our curated fragrance collections, each crafted to evoke a unique olfactory journey.</p>
+        <!-- Animated Down Arrow -->
+        <button onclick="document.getElementById('collections-gallery').scrollIntoView({ behavior: 'smooth' });" aria-label="Scroll to collections" class="absolute bottom-10">
+            <span class="animate-bounce inline-block">
+                <svg class="w-10 h-10 text-brand-gray" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+            </span>
+        </button>
+    </section>
+
+    <!-- Horizontal Gallery Section -->
+    <section id="collections-gallery" class="w-full px-4 md:px-16">
+        <div class="flex flex-row gap-12 justify-center items-stretch pb-8">
+            <!-- Collection 1 -->
+            <div class="w-[340px] h-[340px] flex-shrink-0 bg-white shadow-lg flex flex-col justify-between">
+                <img src="assets/scentll-co-oxzQiQ8ucSM-unsplash.jpg" alt="Classic Collection" class="object-cover w-full h-[200px] aspect-square">
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <h2 class="text-2xl font-semibold text-brand-gray mb-2">Classic Collection</h2>
+                    <p class="text-brand-taupe mb-4">Timeless fragrances inspired by tradition and elegance, perfect for every occasion.</p>
+                    <a href="#" class="text-brand-gray hover:text-brand-taupe font-medium">Explore</a>
+                </div>
+            </div>
+            <!-- Collection 2 -->
+            <div class="w-[340px] h-[340px] flex-shrink-0 bg-white shadow-lg flex flex-col justify-between">
+                <img src="assets/ittar-store-Ek2ESu2lJDQ-unsplash.jpg" alt="Artisan Collection" class="object-cover w-full h-[200px] aspect-square">
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <h2 class="text-2xl font-semibold text-brand-gray mb-2">Artisan Collection</h2>
+                    <p class="text-brand-taupe mb-4">Handcrafted scents with rare ingredients, celebrating creativity and individuality.</p>
+                    <a href="#" class="text-brand-gray hover:text-brand-taupe font-medium">Explore</a>
+                </div>
+            </div>
+            <!-- Collection 3 -->
+            <div class="w-[340px] h-[340px] flex-shrink-0 bg-white shadow-lg flex flex-col justify-between">
+                <img src="assets/trung-do-bao-AQ_PtJYQa_o-unsplash.jpg" alt="Signature Collection" class="object-cover w-full h-[200px] aspect-square">
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <h2 class="text-2xl font-semibold text-brand-gray mb-2">Signature Collection</h2>
+                    <p class="text-brand-taupe mb-4">Bespoke fragrances tailored to your unique personality and style.</p>
+                    <a href="#" class="text-brand-gray hover:text-brand-taupe font-medium">Explore</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="bg-brand-gray text-white py-8 mt-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl mb-4">Contact</h3>
+                    <p>contact@maisonlessence.com</p>
+                    <p>+44 (0) 20 7123 4567</p>
+                </div>
+                <div>
+                    <h3 class="text-xl mb-4">Location</h3>
+                    <p>By appointment only</p>
+                    <p>London • Paris • Milan</p>
+                </div>
+                <div>
+                    <h3 class="text-xl mb-4">Follow Us</h3>
+                    <p>Instagram</p>
+                    <p>Pinterest</p>
+                </div>
+            </div>
+            <div class="text-center mt-8 text-sm">
+                <p>© 2024 Maison de L'essence. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 
