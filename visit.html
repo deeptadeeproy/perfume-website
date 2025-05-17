@@ -40,12 +40,14 @@
         </div>
     </nav>
     <section class="min-h-screen flex items-center justify-center bg-brand-light">
-        <div class="flex flex-row w-full max-w-5xl mx-auto min-h-[80vh]">
-            <div class="flex-1 flex items-center justify-center bg-cover bg-center" style="background-image: url('assets/atelier.jpg'); min-height: 400px;"></div>
-            <div class="flex-1 flex items-center justify-center" style="background: rgba(240,236,226,0.8);">
-                <div class="w-full max-w-lg shadow-lg p-10 flex flex-col items-center" style="border-radius: 0;">
-                    <h2 class="text-3xl md:text-4xl font-semibold text-brand-gray mb-8 text-center">We invite you to experience our atelier firsthand.<br>Schedule a visit.</h2>
-                    <form class="w-full flex flex-col gap-6">
+        <div class="flex flex-row w-full max-w-5xl mx-auto min-h-[80vh] gap-x-12">
+            <div class="flex-1 flex items-stretch justify-center h-full">
+                <img src="assets/atelier.jpg" alt="Atelier" class="h-full w-auto object-contain" style="display: block; max-height: none;">
+            </div>
+            <div class="flex-1 flex items-center justify-center h-full" style="background: rgba(240,236,226,0.8);">
+                <div class="w-full max-w-lg aspect-[5/7] h-full shadow-lg-blk p-10 flex flex-col items-center" style="border-radius: 0;">
+                    <h2 class="text-xl md:text-2xl font-semibold text-brand-gray mb-8 text-center">We invite you to experience our atelier firsthand.<br><br>SCHEDULE A VISIT</h2>
+                    <form class="w-full flex flex-col gap-6 visit-form">
                         <div>
                             <label for="name" class="block text-brand-gray mb-2 font-medium">Name</label>
                             <input type="text" id="name" name="name" required class="w-full px-0 py-3 border-0 border-b-2 border-brand-cream focus:outline-none focus:border-brand-taupe bg-transparent placeholder-brand-taupe" placeholder="Your Name" style="border-radius: 0;">
