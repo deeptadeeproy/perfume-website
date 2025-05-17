@@ -53,8 +53,13 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content">
+    <section class="hero-section relative overflow-hidden">
+        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0" aria-hidden="true">
+            <source src="assets/hero_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="absolute inset-0 bg-black bg-opacity-30 z-10"></div>
+        <div class="hero-content relative z-20">
             <h1 class="hero-title">MAISON DE L'ESSENCE</h1>
             <p class="hero-subtitle">Your unique olfactory signature</p>
         </div>
@@ -74,10 +79,10 @@
     <!-- Olfactory Portrait Section -->
     <section class="feature-section">
         <div class="main-container">
-            <h2 class="feature-title">THE MAGIC OF A UNIQUE OLFACTORY PORTRAIT</h2>
-            <div class="feature-content">
-                <img src="assets/feature-content.jpg" alt="Perfume Creation" class="feature-image">
-                <div class="feature-text">
+            <div class="feature-content items-center">
+                <img src="assets/feature-content.jpg" alt="Perfume Creation" class="feature-image shadow-lg-blk olfactory-crop">
+                <div class="feature-text flex flex-col justify-center h-full">
+                    <h2 class="feature-title text-left mb-6">THE MAGIC OF A UNIQUE OLFACTORY PORTRAIT</h2>
                     <p>Each Bespoke Fragrance is born of an unforgettable encounter between our Master Perfumer and the client. A dialogue is established to define a unique olfactory universe that reflects their personality: tastes, passions, first memories… Our Master Perfumer devotes themselves entirely to crafting the formula. Very often the creative exchange resumes, as many times as necessary. Being the exclusive owner of their formula, the client can reorder their perfume throughout their lifetime.</p>
                 </div>
             </div>
@@ -92,15 +97,15 @@
         </div>
     </section>
 
-    <!-- Signature Bottle Section -->
+    <!-- THE SOUL DISTILLATION RITUAL Bottle Section -->
     <section class="feature-section">
         <div class="main-container">
-            <h2 class="feature-title">THE SOUL DISTILLATION RITUAL</h2>
-            <div class="feature-content">
-                <div class="feature-text">
-                    <p>As a true icon of the House, our The Soul Distillation Ritualbottle is an obvious choice to hold Bespoke Fragrances. Each bottle is hand-crafted by master glassmakers and finished with precious metals, creating a vessel worthy of the unique fragrance it contains. The masterpiece comes with six 100 mL sprayable bottles and four sprayable and endlessly refillable 30 mL travel bottles.</p>
+            <div class="feature-content items-center">
+                <div class="feature-text flex flex-col justify-center h-full">
+                    <h2 class="feature-title text-left mb-6">THE SOUL DISTILLATION RITUAL</h2>
+                    <p>As a true icon of the House, our The Soul Distillation Ritual bottle is an obvious choice to hold Bespoke Fragrances. Each bottle is hand-crafted by master glassmakers and finished with precious metals, creating a vessel worthy of the unique fragrance it contains. The masterpiece comes with six 100 mL sprayable bottles and four sprayable and endlessly refillable 30 mL travel bottles.</p>
                 </div>
-                <img src="assets/sig_crystal_bottle.jpg" alt="Crystal Bottle" class="feature-image">
+                <img src="assets/sig_crystal_bottle.jpg" alt="Crystal Bottle" class="feature-image shadow-lg-blk">
             </div>
         </div>
     </section>
@@ -110,7 +115,7 @@
         <div class="main-container">
             <h2 class="feature-title">THE LUXURY PRESENTATION CASE</h2>
             <div class="feature-content">
-                <img src="assets/Aesop_Aurner_Eau_de_Parfum_Web_Category_Page_Secondary_Full_Width_Tablet_1536x1230px.avif" alt="Luxury Case" class="feature-image">
+                <img src="assets/Aesop_Aurner_Eau_de_Parfum_Web_Category_Page_Secondary_Full_Width_Tablet_1536x1230px.avif" alt="Luxury Case" class="feature-image shadow-lg-blk">
                 <div class="feature-text">
                     <p>Each Bespoke Fragrance is presented in an exceptional handcrafted case, adorned with our signature pattern and finished with the finest materials. The case includes dedicated spaces for your collection of bottles and can be personalized with your initials, hand-painted by our master artisans.</p>
                 </div>
@@ -118,7 +123,7 @@
         </div>
     </section>
 
-    <!-- Footer remains unchanged -->
+    <!-- Footer -->
     <footer class="bg-brand-gray text-white py-8">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
