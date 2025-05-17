@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Maison de L'essence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-light': '#f0ece2',
+                        'brand-cream': '#dfd3c3',
+                        'brand-taupe': '#c7b198',
+                        'brand-gray': '#596e79',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.addEventListener('scroll', function() {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / docHeight) * 100;
+            document.getElementById('scroll-progress-bar').style.width = scrolled + '%';
+        });
+        window.addEventListener('DOMContentLoaded', function() {
+            if (!document.getElementById('scroll-progress-bar')) {
+                const bar = document.createElement('div');
+                bar.id = 'scroll-progress-bar';
+                document.body.appendChild(bar);
+            }
+        });
+    </script>
+</head>
+<body class="bg-brand-light">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-2xl font-semibold text-brand-gray hover:text-brand-taupe transition-colors duration-200">
+                    MAISON DE L'ESSENCE
+                </a>
+                <div class="space-x-8">
+                    <a href="collections.html" class="text-brand-gray hover:text-brand-taupe">Collections</a>
+                    <a href="about.html" class="text-brand-gray hover:text-brand-taupe">About Us</a>
+                    <a href="#" class="text-brand-gray hover:text-brand-taupe">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="w-full min-h-[60vh] flex flex-col items-center justify-center bg-brand-cream relative overflow-hidden" style="background: url('assets/aesop_lab.avif') center center / cover no-repeat;">
+        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center w-full h-full py-24">
+            <h1 class="text-5xl md:text-6xl font-bold text-brand-light mb-4 tracking-wide drop-shadow-lg">About Maison de L'essence</h1>
+            <p class="text-xl md:text-2xl text-brand-cream max-w-2xl text-center drop-shadow-lg">Crafting bespoke fragrances that capture the soul, spirit, and story of every individual.</p>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="py-24 bg-white">
+        <div class="main-container flex flex-col md:flex-row gap-16 items-center">
+            <div class="flex-1">
+                <h2 class="text-4xl font-semibold text-brand-gray mb-6">Our Philosophy</h2>
+                <p class="text-lg text-brand-gray mb-4">Maison de L'essence was founded on the belief that fragrance is a deeply personal expression of identity. We are dedicated to the art of bespoke perfumery, blending tradition, innovation, and artistry to create scents as unique as the individuals who wear them.</p>
+                <p class="text-lg text-brand-taupe">Every creation is a journey—a collaboration between our master perfumers and our clients, resulting in a fragrance that is truly one-of-a-kind.</p>
+            </div>
+            <div class="flex-1 flex justify-center">
+                <img src="assets/feature-content.jpg" alt="Master Perfumer at work" class="shadow-lg w-full max-w-md object-cover" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-24 bg-brand-cream">
+        <div class="main-container">
+            <h2 class="text-4xl font-semibold text-brand-gray text-center mb-12">Meet Our Team</h2>
+            <div class="flex flex-col md:flex-row gap-12 justify-center items-center">
+                <div class="flex-1 flex flex-col items-center text-center">
+                    <img src="assets/olena-bohovyk-GZLuNKxbVWQ-unsplash.jpg" alt="Master Perfumer" class="w-40 h-40 object-cover rounded-full shadow-md mb-4" loading="lazy">
+                    <h3 class="text-2xl font-semibold text-brand-gray mb-1">Élise Laurent</h3>
+                    <p class="text-brand-taupe mb-2">Master Perfumer</p>
+                    <p class="text-brand-gray text-base">With over 25 years of experience, Élise crafts each fragrance with passion, intuition, and a deep understanding of scent as art.</p>
+                </div>
+                <div class="flex-1 flex flex-col items-center text-center">
+                    <img src="assets/pavlo-talpa-bpuh0wx0O5I-unsplash.jpg" alt="Creative Director" class="w-40 h-40 object-cover rounded-full shadow-md mb-4" loading="lazy">
+                    <h3 class="text-2xl font-semibold text-brand-gray mb-1">Marcello Bianchi</h3>
+                    <p class="text-brand-taupe mb-2">Creative Director</p>
+                    <p class="text-brand-gray text-base">Marcello brings a visionary approach to the Maison, ensuring every detail reflects our commitment to beauty and individuality.</p>
+                </div>
+                <div class="flex-1 flex flex-col items-center text-center">
+                    <img src="assets/christin-hume-0MoF-Fe0w0A-unsplash.jpg" alt="Client Liaison" class="w-40 h-40 object-cover rounded-full shadow-md mb-4" loading="lazy">
+                    <h3 class="text-2xl font-semibold text-brand-gray mb-1">Sophie Dubois</h3>
+                    <p class="text-brand-taupe mb-2">Client Liaison</p>
+                    <p class="text-brand-gray text-base">Sophie guides each client through their bespoke journey, ensuring a seamless and memorable experience from start to finish.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-gray text-white py-8 mt-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl mb-4">Contact</h3>
+                    <p>contact@maisonlessence.com</p>
+                    <p>+44 (0) 20 7123 4567</p>
+                </div>
+                <div>
+                    <h3 class="text-xl mb-4">Location</h3>
+                    <p>By appointment only</p>
+                    <p>London • Paris • Milan</p>
+                </div>
+                <div>
+                    <h3 class="text-xl mb-4">Follow Us</h3>
+                    <p>Instagram</p>
+                    <p>Pinterest</p>
+                </div>
+            </div>
+            <div class="text-center mt-8 text-sm">
+                <p>© 2024 Maison de L'essence. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 
