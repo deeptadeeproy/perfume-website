@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+          const isInternalNavigation =
+            document.referrer && location.hostname === new URL(document.referrer).hostname;
+      
+          const hasSeenPopup = sessionStorage.getItem('educationalPopupShown');
+      
+          if (!isInternalNavigation && !hasSeenPopup) {
+            alert("All assets used here are for educational purposes only! Click OK to close the popup");
+            sessionStorage.setItem('educationalPopupShown', 'true');
+          }
+        });
+    </script>
+      
+      
+      
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MAISON DE L'ÂME - Bespoke Fragrances</title>
@@ -40,16 +56,16 @@
     <nav class="bg-white shadow-md">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <div class="text-2xl font-semibold text-brand-gray">
+                <a href="index.html" class="text-2xl font-semibold text-brand-gray hover:text-brand-taupe transition-colors duration-200">
                     MAISON DE L'ÂME
-                </div>
+                </a>
                 <div class="space-x-8">
-                    <a href="index.html" class="text-brand-gray hover:text-brand-taupe">Home</a>
-                    <a href="collections.html" class="text-brand-gray hover:text-brand-taupe">Fragrances</a>
-                    <a href="#" class="text-brand-gray hover:text-brand-taupe">Craftsmanship</a>
-                    <a href="#" class="text-brand-gray hover:text-brand-taupe">Bespoke</a>
-                    <a href="about.html" class="text-brand-gray hover:text-brand-taupe">Our Story</a>
-                    <a href="visit.html" class="text-brand-gray hover:text-brand-taupe">Visit Us</a>
+                    <a href="index.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">Home</a>
+                    <a href="collections.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">Fragrances</a>
+                    <a href="#" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">Craftsmanship</a>
+                    <a href="#" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">Bespoke</a>
+                    <a href="about.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">Our Story</a>
+                    <a href="visit.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">Visit Us</a>
                 </div>
             </div>
         </div>
@@ -80,9 +96,10 @@
     <!-- Olfactory Portrait Section -->
     <section class="feature-section min-h-screen flex items-center">
         <div class="main-container">
-            <h2 class="feature-title">THE MAGIC OF A UNIQUE OLFACTORY PORTRAIT</h2>
+            <h2 class="feature-title">
+            THE MAGIC OF A UNIQUE OLFACTORY PORTRAIT</h2>
             <div class="feature-content">
-                <img src="assets/feature-content-olfactory.jpg" alt="Perfume Creation" class="feature-image shadow-lg-blk">
+                <img src="assets/feature-content-olfactory.jpg" alt="Perfume Creation" class="feature-image " loading="lazy">
                 <div class="feature-text">
                     <p>Each Bespoke Fragrance is born of an unforgettable encounter between our Master Perfumer and the client. A dialogue is established to define a unique olfactory universe that reflects their personality: tastes, passions, first memories… Our Master Perfumer devotes themselves entirely to crafting the formula. Very often the creative exchange resumes, as many times as necessary. Being the exclusive owner of their formula, the client can reorder their perfume throughout their lifetime.</p>
                 </div>
@@ -95,10 +112,10 @@
         <div class="main-container">
             <h2 class="feature-title">LEGACY OF ALCHEMY AND ART</h2>
             <div class="feature-content">
-                <div class="feature-text">
+                <div class="feature-text" style="text-align: right;">
                     <p>Maison de L'Âme traces its roots to 18th-century Provence, where founder Éloïse de Vernay—a botanist's daughter and apprentice to a master perfumer—began distilling rare essences using forgotten alchemical traditions. Her creations weren't merely scents; they were soul signatures. For generations, the house preserved these secrets, catering only to royalty and patrons of deep introspection.</p>
                 </div>
-                <img src="assets/Aesop_Aurner_Eau_de_Parfum_Web_Category_Page_Secondary_Full_Width_Tablet_1536x1230px.avif" alt="Crystal Bottle" class="feature-image shadow-lg-blk">
+                <img src="assets/Aesop_Aurner_Eau_de_Parfum_Web_Category_Page_Secondary_Full_Width_Tablet_1536x1230px.avif" alt="Crystal Bottle" class="feature-image " loading="lazy">
             </div>
         </div>
     </section>
@@ -108,8 +125,8 @@
         <div class="main-container">
             <h2 class="feature-title">SACRED. SLOW. SENSORIAL.</h2>
             <div class="feature-content">
-                <img src="assets/9708950_20250415212502735-1024.png" alt="Luxury Case" class="feature-image shadow-lg-blk">
-                <div class="feature-text">
+                <img src="assets/9708950_20250415212502735-1024.png" alt="Luxury Case" class="feature-image " loading="lazy">
+                <div class="feature-text" style="text-align: right;">
                     <p>Maison de L'Âme cultivates a culture of reverence toward ingredients, time, and individuality. Clients are invited to participate in a ceremonial process that unfolds over several weeks. Through intimate consultations, their memories, emotions, and aspirations are translated into olfactive form. Each creation is bottled by hand, signed by the perfumer, and archived forever.</p>
                 </div>
             </div>
@@ -137,7 +154,7 @@
                 </div>
             </div>
             <div class="text-center mt-8 text-sm">
-                <p>© 2024 MAISON DE L'ÂME. All rights reserved.</p>
+                <p>© 2025 Maison de L'Âme. All rights reserved.</p>
             </div>
         </div>
     </footer>
