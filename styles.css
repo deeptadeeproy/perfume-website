@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap');
 
 :root {
-    --spacing-section: 40px;
-    --spacing-subsection: 30px;
+    --spacing-section: 80px;
+    --spacing-subsection: 40px;
     --root-bg: rgb(240 236 226 / var(--tw-bg-opacity, 1));
 }
 
@@ -73,7 +73,7 @@ body {
 .intro-text {
     max-width: 800px;
     margin: 0 auto;
-    font-size: 20px;
+    font-size: 17px;
     line-height: 1.6;
     color: var(--brand-gray);
 }
@@ -225,4 +225,12 @@ html, body { -ms-overflow-style: none; scrollbar-width: none; }
 .visit-form {
     height: 732px;
     width: 488px;
+}
+
+.bottom-15 {
+    bottom: 3.75rem;
+}
+
+.text-brand-font-nav {
+    font-size: larger;
 }
