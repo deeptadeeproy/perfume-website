@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <title>Scent Journal - Maison de L'Âme</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-light': '#f0ece2',
+                        'brand-cream': '#dfd3c3',
+                        'brand-taupe': '#c7b198',
+                        'brand-gray': '#596e79',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #scroll-progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background-color: #c7b198;
+            width: 0%;
+            z-index: 9999;
+            transition: width 100ms ease-out;
+        }
+        #scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #c7b198;
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        #scroll-to-top:hover {
+            background-color: #596e79;
+        }
+        #scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .nav-link.active {
+            border-bottom: 2px solid #c7b198;
+            padding-bottom: 2px;
+        }
+        .journal-entry {
+            border-left: 2px solid #c7b198;
+            margin-bottom: 3rem;
+        }
+        .journal-date {
+            color: #596e79;
+            font-style: italic;
+        }
+        .hero-background {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(8, 1fr);
+            gap: 0;
+        }
+        .hero-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) brightness(0.8);
+        }
+        .hero-img-1 { grid-area: 1 / 1 / 5 / 7; }
+        .hero-img-2 { grid-area: 1 / 7 / 3 / 10; }
+        .hero-img-3 { grid-area: 1 / 10 / 4 / 13; }
+        .hero-img-4 { grid-area: 3 / 7 / 6 / 10; }
+        .hero-img-5 { grid-area: 4 / 10 / 7 / 13; }
+        .hero-img-6 { grid-area: 5 / 1 / 9 / 4; }
+        .hero-img-7 { grid-area: 5 / 4 / 9 / 7; }
+        .hero-img-8 { grid-area: 6 / 7 / 9 / 13; }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / docHeight) * 100;
+            document.getElementById('scroll-progress-bar').style.width = scrolled + '%';
+            
+            const scrollButton = document.getElementById('scroll-to-top');
+            if (window.scrollY > 500) {
+                scrollButton.classList.add('visible');
+            } else {
+                scrollButton.classList.remove('visible');
+            }
+        });
+
+        window.addEventListener('DOMContentLoaded', function() {
+            if (!document.getElementById('scroll-progress-bar')) {
+                const bar = document.createElement('div');
+                bar.id = 'scroll-progress-bar';
+                document.body.appendChild(bar);
+            }
+            
+            const scrollButton = document.createElement('button');
+            scrollButton.id = 'scroll-to-top';
+            scrollButton.innerHTML = '↑';
+            scrollButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            document.body.appendChild(scrollButton);
+        });
+    </script>
+</head>
+<body class="bg-brand-light">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-6 pr-3 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-2xl font-semibold text-brand-gray hover:text-brand-taupe transition-colors duration-200">
+                    Maison de L'Âme
+                </a>
+                <div class="space-x-8">
+                    <a href="index.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe nav-link">Home</a>
+                    <a href="about.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe nav-link">Our Story</a>
+                    <a href="craftsmanship.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe nav-link">Craftsmanship</a>
+                    <a href="collections.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe nav-link">Collections</a>
+                    <a href="bespoke.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe nav-link">Bespoke</a>
+                    <a href="visit.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe nav-link">Salon Invitations</a>
+                    <a href="journal.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe nav-link active">Scent Journal</a>
+                    <a href="collector.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe nav-link">For the Collector</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="w-full min-h-[48vh] flex flex-col items-center justify-center relative overflow-hidden">
+        <div class="hero-background">
+            <img src="assets/maison_shop_interior.jpg" alt="" aria-hidden="true" class="hero-img-1">
+            <img src="assets/scentll-co-oxzQiQ8ucSM-unsplash.jpg" alt="" aria-hidden="true" class="hero-img-2">
+            <img src="assets/olena-bohovyk-GZLuNKxbVWQ-unsplash.jpg" alt="" aria-hidden="true" class="hero-img-3">
+            <img src="assets/ittar-store-Ek2ESu2lJDQ-unsplash.jpg" alt="" aria-hidden="true" class="hero-img-4">
+            <img src="assets/pavlo-talpa-bpuh0wx0O5I-unsplash.jpg" alt="" aria-hidden="true" class="hero-img-5">
+            <img src="assets/trung-do-bao-AQ_PtJYQa_o-unsplash.jpg" alt="" aria-hidden="true" class="hero-img-6">
+            <img src="assets/atelier.jpg" alt="" aria-hidden="true" class="hero-img-7">
+            <img src="assets/aesop_lab.avif" alt="" aria-hidden="true" class="hero-img-8">
+        </div>
+        <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+        <div class="relative z-20 flex flex-col items-center justify-center w-full h-full py-16">
+            <h1 class="text-5xl text-brand-light mb-4 tracking-wide">The Scent Journal</h1>
+            <p class="text-xl text-brand-cream max-w-2xl text-center">Chronicles of our olfactory journey and creative process</p>
+        </div>
+    </section>
+
+    <!-- Journal Content -->
+    <section class="max-w-4xl mx-auto px-8 py-16">
+        <div class="journal-entry pl-8 mb-16">
+            <h2 class="text-3xl text-brand-gray mb-2">Prelude: Discovering the Legacy</h2>
+            <p class="journal-date mb-4">12 March</p>
+            <p class="text-brand-gray mb-6">Today, I delved into our family archives—yellowed letters, faded fabric swatches, and a hand-drawn map of our ancestral Côte d'Azur estate. A single sprig of flowering jasmine pressed between pages released a whisper of sun-warmed petals. I knew at once that this will be the heart of our new bespoke creation: bright, intoxicating, and timeless.</p>
+        </div>
+
+        <div class="journal-entry pl-8 mb-16">
+            <h2 class="text-3xl text-brand-gray mb-2">Entry I: Top Notes of Dawn</h2>
+            <p class="journal-date mb-4">15 March</p>
+            <p class="text-brand-gray mb-4">Ingredients Blended: Calabrian bergamot, Sicilian neroli, pink peppercorn</p>
+            <p class="text-brand-gray mb-6">In a silver bowl, I combined hand-harvested bergamot oil with a few drops of neroli. The first waft is a breath of Mediterranean morning, crisp and sparkling. A pinch of pink peppercorn adds a playful warmth—like the first rays of sun dancing across dewy blossoms.</p>
+        </div>
+
+        <div class="journal-entry pl-8 mb-16">
+            <h2 class="text-3xl text-brand-gray mb-2">Entry II: Heart of Heritage</h2>
+            <p class="journal-date mb-4">20 March</p>
+            <p class="text-brand-gray mb-4">Ingredients Blended: Jasmine grandiflorum, Bulgarian rose absolute, iris butter</p>
+            <p class="text-brand-gray mb-6">The jasmine pressed from my grandmother's journal unfurls now in full bloom. I layer it with velvety rose absolute, its petals still whispering courtly soirées under crystal chandeliers. Finally, a touch of iris butter—regal, powdery, almost secret—binds them with quiet elegance. This is the soul of Maison de Souveraine: gracious, poised, and infinitely feminine.</p>
+        </div>
+
+        <div class="journal-entry pl-8 mb-16">
+            <h2 class="text-3xl text-brand-gray mb-2">Entry III: Base of Memory</h2>
+            <p class="journal-date mb-4">25 March</p>
+            <p class="text-brand-gray mb-4">Ingredients Blended: Mysore sandalwood, Haitian vetiver, ambergris tincture</p>
+            <p class="text-brand-gray mb-6">As dusk falls, I ground Mysore sandalwood into a smoky heart, then weave in Haitian vetiver's earthy complexity. A tincture of ambergris—rare and ocean-borne—gives a luminous, animalic glow. These base notes linger on the skin like a cherished memory, grounding the florals in deep, resonant warmth.</p>
+        </div>
+
+        <div class="journal-entry pl-8">
+            <h2 class="text-3xl text-brand-gray mb-2">Final Reflection: The Portrait in Fragrance</h2>
+            <p class="journal-date mb-4">30 March</p>
+            <p class="text-brand-gray mb-6">After weeks of nurturing these accords, I uncork the vial. On my wrist, the perfume opens as a living portrait: the brightness of morning, the grace of heritage blooms, and the depth of twilight's embrace. Each sniff tells a chapter of our lineage—a legacy reborn in scent.</p>
+            <p class="text-brand-gray italic">"Magic of Olfactory Portrait" is complete. It is more than a perfume; it is Maison de Souveraine's story, distilled into a single, bespoke bottle.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-gray text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl mb-4">Contact</h3>
+                    <p>contact@maisondelame.com</p>
+                    <p>+44 (0) 20 7123 4567</p>
+                </div>
+                <div>
+                    <h3 class="text-xl mb-4">Location</h3>
+                    <p>By appointment only</p>
+                    <p>London • Paris • Milan</p>
+                </div>
+                <div>
+                    <h3 class="text-xl mb-4">Follow Us</h3>
+                    <p>Instagram</p>
+                    <p>Pinterest</p>
+                </div>
+            </div>
+            <div class="text-center mt-8 text-sm">
+                <p>© 2025 Maison de L'Âme. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 
