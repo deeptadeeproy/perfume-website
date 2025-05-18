@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+          const isInternalNavigation =
+            document.referrer && location.hostname === new URL(document.referrer).hostname;
+      
+          const hasSeenPopup = sessionStorage.getItem('educationalPopupShown');
+      
+          if (!isInternalNavigation && !hasSeenPopup) {
+            alert("All assets used here are for educational purposes only! Click OK to close the popup");
+            sessionStorage.setItem('educationalPopupShown', 'true');
+          }
+        });
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bespoke - MAISON DE L'ÂME</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-light': '#f0ece2',
+                        'brand-cream': '#dfd3c3',
+                        'brand-taupe': '#c7b198',
+                        'brand-gray': '#596e79',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+                .hero-bw {            background-image: url('assets/bespoke_hero_final.jpg');            background-size: cover;            background-position: center;        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / docHeight) * 100;
+            document.getElementById('scroll-progress-bar').style.width = scrolled + '%';
+        });
+        window.addEventListener('DOMContentLoaded', function() {
+            if (!document.getElementById('scroll-progress-bar')) {
+                const bar = document.createElement('div');
+                bar.id = 'scroll-progress-bar';
+                document.body.appendChild(bar);
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-2xl font-semibold text-brand-gray hover:text-brand-taupe transition-colors duration-200">
+                    MAISON DE L'ÂME
+                </a>
+                <div class="space-x-8">
+                    <a href="index.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">Home</a>
+                    <a href="about.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">Our Story</a>
+                    <a href="craftsmanship.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">Craftsmanship</a>
+                    <a href="collections.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">Collections</a>
+                    <a href="bespoke.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">Bespoke</a>
+                    <a href="visit.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">Salon Invitations</a>
+                    <a href="#" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">Scent Journal</a>
+                    <a href="#" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">For the Collector</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen overflow-hidden">
+        <div class="hero-bw absolute inset-0"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+            <h1 class="hero-title text-white mb-6">BESPOKE CREATIONS</h1>
+            <p class="hero-subtitle text-brand-cream max-w-3xl mx-auto">Your personal fragrance journey begins here</p>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="main-container">
+            <div class="intro-text">
+                <p>Each bespoke fragrance is a unique collaboration between you and our master perfumer. Through intimate consultations and artistic exploration, we create a scent that is exclusively yours—a personal signature that tells your story through the language of fragrance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Process -->
+    <section class="feature-section min-h-[50vh] flex items-center">
+        <div class="main-container">
+            <h2 class="feature-title">YOUR BESPOKE JOURNEY</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
+                <div class="text-center">
+                    <h3 class="text-2xl font-semibold text-brand-gray mb-4">CONSULTATION</h3>
+                    <p class="text-brand-black">A personal meeting with our master perfumer to explore your olfactory preferences, memories, and aspirations.</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-2xl font-semibold text-brand-gray mb-4">CREATION</h3>
+                    <p class="text-brand-black">Your unique formula is crafted through multiple iterations, ensuring every note resonates with your identity.</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-2xl font-semibold text-brand-gray mb-4">REVELATION</h3>
+                    <p class="text-brand-black">The unveiling of your bespoke fragrance, presented in our signature crystal bottle with your personal archive reference.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="feature-section min-h-screen flex items-center bg-white">
+        <div class="main-container">
+            <h2 class="feature-title">BEGIN YOUR JOURNEY</h2>
+            <div class="flex flex-col md:flex-row gap-12 items-center mt-12">
+                <div class="flex-1">
+                    <img src="assets/bespoke_hero.jpg" alt="Bespoke Creation Process" class="w-full h-auto shadow-lg" loading="lazy" style="filter: saturate(70%) brightness(95%) contrast(90%);">
+                </div>
+                <div class="flex-1 space-y-6">
+                    <p class="text-lg text-brand-gray">Your bespoke fragrance journey begins with a private consultation at one of our ateliers. Our master perfumer will guide you through the process of creating a scent that is uniquely yours.</p>
+                    <a href="visit.html" class="inline-block bg-brand-gray text-white px-8 py-3 mt-6 hover:bg-brand-taupe transition-colors duration-200">Schedule a Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-gray text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl mb-4">Contact</h3>
+                    <p>contact@maisondelame.com</p>
+                    <p>+44 (0) 20 7123 4567</p>
+                </div>
+                <div>
+                    <h3 class="text-xl mb-4">Location</h3>
+                    <p>By appointment only</p>
+                    <p>London • Paris • Milan</p>
+                </div>
+                <div>
+                    <h3 class="text-xl mb-4">Follow Us</h3>
+                    <p>Instagram</p>
+                    <p>Pinterest</p>
+                </div>
+            </div>
+            <div class="text-center mt-8 text-sm">
+                <p>© 2025 Maison de L'Âme. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 
