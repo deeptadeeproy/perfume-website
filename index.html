@@ -19,7 +19,7 @@
       
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAISON DE L'ÂME - Bespoke Fragrances</title>
+    <title>Maison de L'Âme - Bespoke Fragrances</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -36,6 +36,21 @@
         }
     </script>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        #scroll-progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background-color: #c7b198;
+            width: 0%;
+            z-index: 9999;
+            transition: width 100ms ease-out;
+        }
+        .hero-title {
+            font-size: 110%; /* Increase font size by 10% */
+        }
+    </style>
     <script>
         window.addEventListener('scroll', function() {
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -54,10 +69,10 @@
 <body>
     <!-- Navigation remains unchanged -->
     <nav class="bg-white shadow-md">
-        <div class="container mx-auto px-6 py-4">
+        <div class="container mx-auto px-6 pr-3 py-4">
             <div class="flex items-center justify-between">
                 <a href="index.html" class="text-2xl font-semibold text-brand-gray hover:text-brand-taupe transition-colors duration-200">
-                    MAISON DE L'ÂME
+                    Maison de L'Âme
                 </a>
                 <div class="space-x-8">
                     <a href="index.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">Home</a>
@@ -67,7 +82,7 @@
                     <a href="bespoke.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">Bespoke</a>
                     <a href="visit.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">Salon Invitations</a>
                     <a href="#" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">Scent Journal</a>
-                    <a href="#" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">For the Collector</a>
+                    <a href="collector.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">For the Collector</a>
                 </div>
             </div>
         </div>
@@ -76,12 +91,12 @@
     <!-- Hero Section -->
     <section class="hero-section relative overflow-hidden">
         <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0" aria-hidden="true">
-            <source src="assets/hero_video.mp4" type="video/mp4">
+            <source src="assets/index_hero.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="absolute inset-0 bg-black bg-opacity-30 z-10"></div>
         <div class="hero-content relative z-20">
-            <h1 class="hero-title">MAISON DE L'ÂME</h1>
+            <h1 class="hero-title" style="font-size: 4.4rem;">Maison de L'Âme</h1>
             <p class="hero-subtitle">Your unique olfactory signature</p>
         </div>
     </section>
@@ -90,7 +105,7 @@
     <section class="intro-section">
         <div class="main-container">
             <div class="intro-text">
-                <p>Fragrance is an act of expressing one's identity. Some people dream of an olfactory signature that reveals the most subtle nuances of their personality, of a fragrance that mirrors them perfectly: utterly unique. Since our founding, MAISON DE L'ÂME has been responding to this quest for uniqueness and excellence and has passionately perfected the art of bespoke.</p>
+                <p>Fragrance is an act of expressing one's identity. Some people dream of an olfactory signature that reveals the most subtle nuances of their personality, of a fragrance that mirrors them perfectly: utterly unique. Since our founding, Maison de L'Âme has been responding to this quest for uniqueness and excellence and has passionately perfected the art of bespoke.</p>
             </div>
         </div>
     </section>
@@ -101,7 +116,7 @@
             <h2 class="feature-title">
             THE MAGIC OF A UNIQUE OLFACTORY PORTRAIT</h2>
             <div class="feature-content">
-                <img src="assets/feature-content-olfactory.jpg" alt="Perfume Creation" class="feature-image " loading="lazy">
+                <img src="assets/feature-content-olfactory.jpg" alt="Perfume Creation" class="feature-image" loading="lazy" style="filter: sepia(70%);">
                 <div class="feature-text">
                     <p>Each Bespoke Fragrance is born of an unforgettable encounter between our Master Perfumer and the client. A dialogue is established to define a unique olfactory universe that reflects their personality: tastes, passions, first memories… Our Master Perfumer devotes themselves entirely to crafting the formula. Very often the creative exchange resumes, as many times as necessary. Being the exclusive owner of their formula, the client can reorder their perfume throughout their lifetime.</p>
                 </div>
