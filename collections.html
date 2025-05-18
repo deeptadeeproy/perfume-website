@@ -56,6 +56,39 @@
             opacity: 1;
             visibility: visible;
         }
+        .mobile-menu {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .desktop-menu {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .mobile-menu-items {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            }
+            .mobile-menu-items.active {
+                display: block;
+            }
+            .mobile-menu-items a {
+                display: block;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid #eee;
+            }
+            .mobile-menu-items a:last-child {
+                border-bottom: none;
+            }
+        }
     </style>
     <script>
         window.addEventListener('scroll', function() {
@@ -94,14 +127,14 @@
     </script>
 </head>
 <body class="bg-brand-light">
-    <!-- Navigation (same as index.html) -->
     <nav class="bg-white shadow-md">
         <div class="container mx-auto px-6 pr-3 py-4">
             <div class="flex items-center justify-between">
                 <a href="index.html" class="text-2xl font-semibold text-brand-gray hover:text-brand-taupe transition-colors duration-200">
                     Maison de L'Âme
                 </a>
-                <div class="space-x-8">
+                <!-- Desktop Menu -->
+                <div class="space-x-8 desktop-menu">
                     <a href="index.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">Home</a>
                     <a href="about.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">Our Story</a>
                     <a href="craftsmanship.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">Craftsmanship</a>
@@ -111,9 +144,33 @@
                     <a href="#" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">Scent Journal</a>
                     <a href="collector.html" class="text-brand-gray text-brand-font-nav hover:text-brand-taupe">For the Collector</a>
                 </div>
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu p-2" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6 text-brand-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu Items -->
+            <div class="mobile-menu-items">
+                <a href="index.html" class="text-brand-gray hover:text-brand-taupe">Home</a>
+                <a href="about.html" class="text-brand-gray hover:text-brand-taupe">Our Story</a>
+                <a href="craftsmanship.html" class="text-brand-gray hover:text-brand-taupe">Craftsmanship</a>
+                <a href="collections.html" class="text-brand-gray hover:text-brand-taupe">Collections</a>
+                <a href="bespoke.html" class="text-brand-gray hover:text-brand-taupe">Bespoke</a>
+                <a href="visit.html" class="text-brand-gray hover:text-brand-taupe">Salon Invitations</a>
+                <a href="#" class="text-brand-gray hover:text-brand-taupe">Scent Journal</a>
+                <a href="collector.html" class="text-brand-gray hover:text-brand-taupe">For the Collector</a>
             </div>
         </div>
     </nav>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu-items');
+            mobileMenu.classList.toggle('active');
+        }
+    </script>
 
     <!-- Hero Section -->
     <section id="hero" class="w-full min-h-screen flex flex-col items-center justify-center bg-brand-cream relative overflow-hidden">
