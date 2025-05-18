@@ -1,9 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+          const isInternalNavigation =
+            document.referrer && location.hostname === new URL(document.referrer).hostname;
+      
+          const hasSeenPopup = sessionStorage.getItem('educationalPopupShown');
+      
+          if (!isInternalNavigation && !hasSeenPopup) {
+            alert("All assets used here are for educational purposes only! Click OK to close the popup");
+            sessionStorage.setItem('educationalPopupShown', 'true');
+          }
+        });
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Maison de L'Âme</title>
+    <title>For the Collector - Maison de L'Âme</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -20,6 +34,18 @@
         }
     </script>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        #scroll-progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background-color: #c7b198;
+            width: 0%;
+            z-index: 9999;
+            transition: width 100ms ease-out;
+        }
+    </style>
     <script>
         window.addEventListener('scroll', function() {
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -35,7 +61,7 @@
         });
     </script>
 </head>
-<body class="bg-brand-light">
+<body>
     <!-- Navigation -->
     <nav class="bg-white shadow-md">
         <div class="container mx-auto px-6 pr-3 py-4">
@@ -58,25 +84,21 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="w-full min-h-[60vh] flex flex-col items-center justify-center bg-brand-cream relative overflow-hidden" style="background: url('assets/aesop_lab.avif') center center / cover no-repeat; height: 100vh;">
-        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
-        <div class="relative z-10 flex flex-col items-center justify-center w-full h-full py-24">
-            <h1 class="text-5xl md:text-6xl font-bold text-brand-light mb-4 tracking-wide drop-shadow-lg">About Maison de L'Âme</h1>
-            <p class="text-xl md:text-2xl text-brand-cream max-w-2xl text-center drop-shadow-lg">Crafting bespoke fragrances that capture the soul, spirit, and story of every individual.</p>
+    <section class="relative h-screen overflow-hidden">
+        <img src="assets/collection_hero.jpg" alt="Collector's Edition" class="absolute inset-0 w-full h-full object-cover" style="filter: saturate(70%) brightness(95%) contrast(90%);">
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+            <h1 class="hero-title text-white mb-6">Les Archives Éphémères</h1>
+            <p class="hero-subtitle text-brand-cream max-w-3xl mx-auto">Rare and extraordinary fragrances for the discerning collector</p>
         </div>
     </section>
 
-    <!-- Mission Section -->
-    <section class="py-24 bg-white relative overflow-hidden" style="min-height:400px; height:100vh;">
-        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0" aria-hidden="true">
-            <source src="assets/philosophy.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
-        <div class="main-container relative z-20 flex flex-col items-center justify-center text-center h-full">
-            <h2 class="text-4xl font-semibold text-brand-light mb-6 drop-shadow-lg">Our Philosophy</h2>
-            <p class="text-lg text-brand-light mb-4 drop-shadow-lg">Maison de L'Âme was founded on the belief that fragrance is a deeply personal expression of identity. We are dedicated to the art of bespoke perfumery, blending tradition, innovation, and artistry to create scents as unique as the individuals who wear them.</p>
-            <p class="text-lg text-brand-cream drop-shadow-lg">Every creation is a journey—a collaboration between our master perfumers and our clients, resulting in a fragrance that is truly one-of-a-kind.</p>
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="main-container">
+            <div class="intro-text">
+                <p>Our Collector's Editions represent the pinnacle of perfumery artistry. Each creation is a masterpiece of olfactory innovation, presented in museum-quality vessels and housed in handcrafted cases. These limited editions are more than fragrances—they are works of art that appreciate in value and significance over time.</p>
+            </div>
         </div>
     </section>
 
