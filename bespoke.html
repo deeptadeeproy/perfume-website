@@ -14,12 +14,10 @@
           }
         });
     </script>
-      
-      
-      
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAISON DE L'ÂME - Bespoke Fragrances</title>
+    <title>Bespoke - MAISON DE L'ÂME</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -36,6 +34,9 @@
         }
     </script>
     <link rel="stylesheet" href="styles.css">
+    <style>
+                .hero-bw {            background-image: url('assets/bespoke_hero_final.jpg');            background-size: cover;            background-position: center;        }
+    </style>
     <script>
         window.addEventListener('scroll', function() {
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -52,7 +53,7 @@
     </script>
 </head>
 <body>
-    <!-- Navigation remains unchanged -->
+    <!-- Navigation -->
     <nav class="bg-white shadow-md">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
@@ -74,15 +75,12 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section relative overflow-hidden">
-        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0" aria-hidden="true">
-            <source src="assets/hero_video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="absolute inset-0 bg-black bg-opacity-30 z-10"></div>
-        <div class="hero-content relative z-20">
-            <h1 class="hero-title">MAISON DE L'ÂME</h1>
-            <p class="hero-subtitle">Your unique olfactory signature</p>
+    <section class="relative h-screen overflow-hidden">
+        <div class="hero-bw absolute inset-0"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+            <h1 class="hero-title text-white mb-6">BESPOKE CREATIONS</h1>
+            <p class="hero-subtitle text-brand-cream max-w-3xl mx-auto">Your personal fragrance journey begins here</p>
         </div>
     </section>
 
@@ -90,46 +88,43 @@
     <section class="intro-section">
         <div class="main-container">
             <div class="intro-text">
-                <p>Fragrance is an act of expressing one's identity. Some people dream of an olfactory signature that reveals the most subtle nuances of their personality, of a fragrance that mirrors them perfectly: utterly unique. Since our founding, MAISON DE L'ÂME has been responding to this quest for uniqueness and excellence and has passionately perfected the art of bespoke.</p>
+                <p>Each bespoke fragrance is a unique collaboration between you and our master perfumer. Through intimate consultations and artistic exploration, we create a scent that is exclusively yours—a personal signature that tells your story through the language of fragrance.</p>
             </div>
         </div>
     </section>
 
-    <!-- Olfactory Portrait Section -->
-    <section class="feature-section min-h-screen flex items-center">
+    <!-- The Process -->
+    <section class="feature-section min-h-[50vh] flex items-center">
         <div class="main-container">
-            <h2 class="feature-title">
-            THE MAGIC OF A UNIQUE OLFACTORY PORTRAIT</h2>
-            <div class="feature-content">
-                <img src="assets/feature-content-olfactory.jpg" alt="Perfume Creation" class="feature-image " loading="lazy">
-                <div class="feature-text">
-                    <p>Each Bespoke Fragrance is born of an unforgettable encounter between our Master Perfumer and the client. A dialogue is established to define a unique olfactory universe that reflects their personality: tastes, passions, first memories… Our Master Perfumer devotes themselves entirely to crafting the formula. Very often the creative exchange resumes, as many times as necessary. Being the exclusive owner of their formula, the client can reorder their perfume throughout their lifetime.</p>
+            <h2 class="feature-title">YOUR BESPOKE JOURNEY</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
+                <div class="text-center">
+                    <h3 class="text-2xl font-semibold text-brand-gray mb-4">CONSULTATION</h3>
+                    <p class="text-brand-black">A personal meeting with our master perfumer to explore your olfactory preferences, memories, and aspirations.</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-2xl font-semibold text-brand-gray mb-4">CREATION</h3>
+                    <p class="text-brand-black">Your unique formula is crafted through multiple iterations, ensuring every note resonates with your identity.</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-2xl font-semibold text-brand-gray mb-4">REVELATION</h3>
+                    <p class="text-brand-black">The unveiling of your bespoke fragrance, presented in our signature crystal bottle with your personal archive reference.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- LEGACY OF ALCHEMY AND ART Section -->
-    <section class="feature-section min-h-screen flex items-center">
+    <!-- Booking Section -->
+    <section class="feature-section min-h-screen flex items-center bg-white">
         <div class="main-container">
-            <h2 class="feature-title">LEGACY OF ALCHEMY AND ART</h2>
-            <div class="feature-content">
-                <div class="feature-text" style="text-align: right;">
-                    <p>Maison de L'Âme traces its roots to 18th-century Provence, where founder Éloïse de Vernay—a botanist's daughter and apprentice to a master perfumer—began distilling rare essences using forgotten alchemical traditions. Her creations weren't merely scents; they were soul signatures. For generations, the house preserved these secrets, catering only to royalty and patrons of deep introspection.</p>
+            <h2 class="feature-title">BEGIN YOUR JOURNEY</h2>
+            <div class="flex flex-col md:flex-row gap-12 items-center mt-12">
+                <div class="flex-1">
+                    <img src="assets/bespoke_hero.jpg" alt="Bespoke Creation Process" class="w-full h-auto shadow-lg" loading="lazy" style="filter: saturate(70%) brightness(95%) contrast(90%);">
                 </div>
-                <img src="assets/Aesop_Aurner_Eau_de_Parfum_Web_Category_Page_Secondary_Full_Width_Tablet_1536x1230px.avif" alt="Crystal Bottle" class="feature-image " loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <!-- SACRED. SLOW. SENSORIAL. Section -->
-    <section class="feature-section min-h-screen flex items-center">
-        <div class="main-container">
-            <h2 class="feature-title">SACRED. SLOW. SENSORIAL.</h2>
-            <div class="feature-content">
-                <img src="assets/9708950_20250415212502735-1024.png" alt="Luxury Case" class="feature-image " loading="lazy">
-                <div class="feature-text" style="text-align: right;">
-                    <p>Maison de L'Âme cultivates a culture of reverence toward ingredients, time, and individuality. Clients are invited to participate in a ceremonial process that unfolds over several weeks. Through intimate consultations, their memories, emotions, and aspirations are translated into olfactive form. Each creation is bottled by hand, signed by the perfumer, and archived forever.</p>
+                <div class="flex-1 space-y-6">
+                    <p class="text-lg text-brand-gray">Your bespoke fragrance journey begins with a private consultation at one of our ateliers. Our master perfumer will guide you through the process of creating a scent that is uniquely yours.</p>
+                    <a href="visit.html" class="inline-block bg-brand-gray text-white px-8 py-3 mt-6 hover:bg-brand-taupe transition-colors duration-200">Schedule a Consultation</a>
                 </div>
             </div>
         </div>
