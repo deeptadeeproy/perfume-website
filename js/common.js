@@ -108,8 +108,10 @@ window.addEventListener('scroll', function() {
             const currentScrollY = window.scrollY;
             const scrollDiff = currentScrollY - lastScrollY;
             
-            // Show/hide navbar based on scroll direction with a small threshold
-            if (scrollDiff > 2) { // Scrolling down
+            // Always show navbar at top of page, otherwise show/hide based on scroll direction
+            if (currentScrollY === 0) {
+                navbar.classList.remove('nav-hidden');
+            } else if (scrollDiff > 2) { // Scrolling down
                 navbar.classList.add('nav-hidden');
             } else if (scrollDiff < -2) { // Scrolling up
                 navbar.classList.remove('nav-hidden');
