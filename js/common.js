@@ -15,12 +15,7 @@ window.addEventListener('DOMContentLoaded', function () {
 const assetsToPreload = {
     images: [
         // Hero and Background Images
-        'assets/maison_shop_interior.jpg',
-        'assets/scentll-co-oxzQiQ8ucSM-unsplash.jpg',
-        'assets/ittar-store-Ek2ESu2lJDQ-unsplash.jpg',
-        'assets/atelier.jpg',
-        'assets/aesop_lab.avif',
-        'assets/col_hero.jpg',
+        'assets/journal_banner.png',
         'assets/collection_hero.jpg',
         'assets/about_hero.jpg',
         'assets/bespoke_hero.jpg',
