@@ -1,20 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-        window.addEventListener('DOMContentLoaded', function () {
-          const isInternalNavigation =
-            document.referrer && location.hostname === new URL(document.referrer).hostname;
-      
-          const hasSeenPopup = sessionStorage.getItem('educationalPopupShown');
-      
-          if (!isInternalNavigation && !hasSeenPopup) {
-            alert("All assets used here are for educational purposes only! Click OK to close the popup");
-            sessionStorage.setItem('educationalPopupShown', 'true');
-          }
-        });
-    </script>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
@@ -35,82 +21,7 @@
         }
     </script>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        #scroll-progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 2px;
-            background-color: #c7b198;
-            width: 0%;
-            z-index: 9999;
-            transition: width 100ms ease-out;
-        }
-        #scroll-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background-color: #c7b198;
-            color: white;
-            width: 3rem;
-            height: 3rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-        #scroll-to-top:hover {
-            background-color: #596e79;
-        }
-        #scroll-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        .nav-link.active {
-            border-bottom: 2px solid #c7b198;
-            padding-bottom: 2px;
-        }
-    </style>
-    <script>
-        window.addEventListener('scroll', function() {
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrolled = (window.scrollY / docHeight) * 100;
-            document.getElementById('scroll-progress-bar').style.width = scrolled + '%';
-            
-            // Show/hide scroll to top button
-            const scrollButton = document.getElementById('scroll-to-top');
-            if (window.scrollY > 500) {
-                scrollButton.classList.add('visible');
-            } else {
-                scrollButton.classList.remove('visible');
-            }
-        });
-
-        window.addEventListener('DOMContentLoaded', function() {
-            if (!document.getElementById('scroll-progress-bar')) {
-                const bar = document.createElement('div');
-                bar.id = 'scroll-progress-bar';
-                document.body.appendChild(bar);
-            }
-            
-            // Create scroll to top button
-            const scrollButton = document.createElement('button');
-            scrollButton.id = 'scroll-to-top';
-            scrollButton.innerHTML = '↑';
-            scrollButton.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-            document.body.appendChild(scrollButton);
-        });
-    </script>
+    <script src="js/common.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -139,7 +50,7 @@
         <img src="assets/collection_hero.jpg" alt="Collector's Edition" class="absolute inset-0 w-full h-full object-cover" style="filter: saturate(70%) brightness(95%) contrast(90%);">
         <div class="absolute inset-0 bg-black bg-opacity-40"></div>
         <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-            <h1 class="hero-title text-white mb-6">Les Archives Éphémères</h1>
+            <h1 class="text-5xl text-white mb-6 tracking-wide">Les Archives Éphémères</h1>
             <p class="hero-subtitle text-brand-cream max-w-3xl mx-auto">Rare and extraordinary fragrances for the discerning collector</p>
         </div>
     </section>
