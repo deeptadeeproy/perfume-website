@@ -19,6 +19,11 @@ body {
     padding: 0 40px;
 }
 
+/* Hero margin for fixed navbar */
+.hero-margin {
+    margin-top: 76px;
+}
+
 .hero-section {
     position: relative;
     height: 100vh;
@@ -407,6 +412,29 @@ nav {
     top: 0;
     transition: transform 0.3s ease-in-out;
     z-index: 1000;
+    height: 76px;
+    background: white;
+}
+
+nav .container {
+    height: 100%;
+}
+
+nav .flex {
+    height: 100%;
+    align-items: center;
+}
+
+nav a {
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+}
+
+nav .space-x-8 {
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 nav.nav-hidden {
