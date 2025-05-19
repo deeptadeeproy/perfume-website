@@ -399,3 +399,16 @@ html, body { -ms-overflow-style: none; scrollbar-width: none; }
 .hero-img-3 { grid-area: 3 / 6 / 7 / 9; }
 .hero-img-4 { grid-area: 4 / 1 / 7 / 6; }
 .hero-img-5 { grid-area: 3 / 9 / 7 / 13; }
+
+/* Add navbar transition styles */
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+nav.nav-hidden {
+    transform: translateY(-100%);
+}

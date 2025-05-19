@@ -11,18 +11,42 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// Scroll Progress Bar and Scroll to Top functionality
+// Navbar scroll behavior
+let lastScrollY = window.scrollY;
+let ticking = false;
+
 window.addEventListener('scroll', function() {
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrolled = (window.scrollY / docHeight) * 100;
-    document.getElementById('scroll-progress-bar').style.width = scrolled + '%';
-    
-    // Show/hide scroll to top button
-    const scrollButton = document.getElementById('scroll-to-top');
-    if (window.scrollY > 500) {
-        scrollButton.classList.add('visible');
-    } else {
-        scrollButton.classList.remove('visible');
+    if (!ticking) {
+        window.requestAnimationFrame(function() {
+            const navbar = document.querySelector('nav');
+            const currentScrollY = window.scrollY;
+            const scrollDiff = currentScrollY - lastScrollY;
+            
+            // Show/hide navbar based on scroll direction with a small threshold
+            if (scrollDiff > 2) { // Scrolling down
+                navbar.classList.add('nav-hidden');
+            } else if (scrollDiff < -2) { // Scrolling up
+                navbar.classList.remove('nav-hidden');
+            }
+            
+            lastScrollY = currentScrollY;
+            ticking = false;
+            
+            // Scroll Progress Bar
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (currentScrollY / docHeight) * 100;
+            document.getElementById('scroll-progress-bar').style.width = scrolled + '%';
+            
+            // Show/hide scroll to top button
+            const scrollButton = document.getElementById('scroll-to-top');
+            if (currentScrollY > 500) {
+                scrollButton.classList.add('visible');
+            } else {
+                scrollButton.classList.remove('visible');
+            }
+        });
+        
+        ticking = true;
     }
 });
 
