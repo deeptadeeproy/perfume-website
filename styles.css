@@ -32,7 +32,7 @@ body {
     justify-content: center;
     text-align: center;
     color: white;
-    background-image: url('assets/aesop_lab.avif');
+    background-color: var(--brand-gray);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
