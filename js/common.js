@@ -11,6 +11,57 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+// Asset Preloader
+const assetsToPreload = {
+    images: [
+        'assets/maison_shop_interior.jpg',
+        'assets/scentll-co-oxzQiQ8ucSM-unsplash.jpg',
+        'assets/ittar-store-Ek2ESu2lJDQ-unsplash.jpg',
+        'assets/atelier.jpg',
+        'assets/aesop_lab.avif',
+        'assets/col_hero.jpg',
+        'assets/collection_hero.jpg'
+    ],
+    videos: [
+        'assets/index_hero.mp4',
+        'assets/master-perfumer.mp4',
+        'assets/philosophy.mp4'
+    ]
+};
+
+function preloadAssets() {
+    // Preload images
+    assetsToPreload.images.forEach(imageUrl => {
+        const img = new Image();
+        img.src = imageUrl;
+    });
+
+    // Preload videos
+    assetsToPreload.videos.forEach(videoUrl => {
+        const video = document.createElement('video');
+        const source = document.createElement('source');
+        
+        video.style.display = 'none'; // Hide the video element
+        source.type = 'video/mp4';
+        source.src = videoUrl;
+        
+        video.appendChild(source);
+        video.load(); // Start loading the video
+        
+        // Remove the video element once loaded
+        video.onloadeddata = () => {
+            if (video.parentNode) {
+                video.parentNode.removeChild(video);
+            }
+        };
+        
+        document.body.appendChild(video);
+    });
+}
+
+// Start preloading assets after a short delay to not block initial page load
+setTimeout(preloadAssets, 1000);
+
 // Navbar scroll behavior
 let lastScrollY = window.scrollY;
 let ticking = false;
