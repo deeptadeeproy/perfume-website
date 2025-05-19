@@ -14,13 +14,30 @@ window.addEventListener('DOMContentLoaded', function () {
 // Asset Preloader
 const assetsToPreload = {
     images: [
+        // Hero and Background Images
         'assets/maison_shop_interior.jpg',
         'assets/scentll-co-oxzQiQ8ucSM-unsplash.jpg',
         'assets/ittar-store-Ek2ESu2lJDQ-unsplash.jpg',
         'assets/atelier.jpg',
         'assets/aesop_lab.avif',
         'assets/col_hero.jpg',
-        'assets/collection_hero.jpg'
+        'assets/collection_hero.jpg',
+        'assets/about_hero.jpg',
+        'assets/bespoke_hero.jpg',
+        'assets/bespoke_hero_final.jpg',
+        
+        // Collection Page Images
+        'assets/left_col.jpeg',
+        'assets/centre_col.jpeg',
+        'assets/right_col.jpeg',
+        
+        // Feature Images
+        'assets/feature-content-olfactory.jpg',
+        'assets/Aesop_Aurner_Eau_de_Parfum_Web_Category_Page_Secondary_Full_Width_Tablet_1536x1230px.avif',
+        'assets/9708950_20250415212502735-1024.png',
+        
+        // Favicon
+        'assets/favicon.ico'
     ],
     videos: [
         'assets/index_hero.mp4',
@@ -30,23 +47,46 @@ const assetsToPreload = {
 };
 
 function preloadAssets() {
-    // Preload images
-    assetsToPreload.images.forEach(imageUrl => {
+    // Preload images with priority
+    const priorityImages = [
+        'assets/maison_shop_interior.jpg',
+        'assets/col_hero.jpg',
+        'assets/collection_hero.jpg',
+        'assets/about_hero.jpg'
+    ];
+
+    // First load priority images
+    priorityImages.forEach(imageUrl => {
         const img = new Image();
+        img.importance = 'high';
         img.src = imageUrl;
     });
 
-    // Preload videos
+    // Then load remaining images
+    assetsToPreload.images
+        .filter(img => !priorityImages.includes(img))
+        .forEach(imageUrl => {
+            const img = new Image();
+            img.loading = 'lazy';
+            img.src = imageUrl;
+        });
+
+    // Preload videos with reduced priority
     assetsToPreload.videos.forEach(videoUrl => {
         const video = document.createElement('video');
         const source = document.createElement('source');
         
-        video.style.display = 'none'; // Hide the video element
+        video.style.display = 'none';
+        video.preload = 'metadata'; // Start with metadata only
         source.type = 'video/mp4';
         source.src = videoUrl;
         
         video.appendChild(source);
-        video.load(); // Start loading the video
+        
+        // Once metadata is loaded, start loading the full video
+        video.onloadedmetadata = () => {
+            video.preload = 'auto';
+        };
         
         // Remove the video element once loaded
         video.onloadeddata = () => {
