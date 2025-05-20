@@ -21,7 +21,7 @@ body {
 
 /* Hero margin for fixed navbar */
 .hero-margin {
-    margin-top: 76px;
+    margin-top: 0;
 }
 
 .hero-section {
@@ -270,8 +270,16 @@ html, body { -ms-overflow-style: none; scrollbar-width: none; }
 }
 
 .nav-link.active {
-    border-bottom: 2px solid #c7b198;
+    border-bottom: 2px solid #8b7355;
     padding-bottom: 2px;
+}
+
+.nav-link:hover {
+    color: #8b7355 !important;
+}
+
+.brand-link:hover {
+    color: #8b7355 !important;
 }
 
 .hero-bw {
@@ -390,8 +398,9 @@ nav {
     top: 0;
     transition: transform 0.3s ease-in-out;
     z-index: 1000;
-    height: 76px;
-    background: white;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(5px);
 }
 
 nav .container {
@@ -400,19 +409,27 @@ nav .container {
 
 nav .flex {
     height: 100%;
+    flex-direction: column;
     align-items: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
 }
 
 nav a {
     display: inline-flex;
     align-items: center;
-    height: 100%;
+}
+
+nav .brand-link {
+    margin-bottom: 12px;
 }
 
 nav .space-x-8 {
-    height: 100%;
+    height: auto;
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 nav.nav-hidden {
