@@ -260,6 +260,28 @@ html, body { -ms-overflow-style: none; scrollbar-width: none; }
     z-index: 1000;
 }
 
+#scroll-to-top::after {
+    content: attr(data-page);
+    position: absolute;
+    white-space: nowrap;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #212f3c;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+}
+
+#scroll-to-top:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
 #scroll-to-top:hover {
     background-color: #596e79;
 }
@@ -477,4 +499,135 @@ nav .space-x-8:hover ~ nav,
 nav .space-x-8:hover,
 nav.nav-hidden {
     background: rgba(255, 255, 255, 1);
+}
+
+/* Navigation Arrows */
+.nav-arrow {
+    position: fixed;
+    top: 50vh;
+    transform: translateY(-50%);
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    opacity: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    z-index: 1000;
+    background-color: #c7b198;
+    border-radius: 50%;
+    text-decoration: none;
+    visibility: hidden;
+}
+
+.nav-arrow.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-arrow:hover {
+    background-color: #596e79;
+}
+
+.nav-arrow::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transition: all 0.3s ease;
+}
+
+.nav-arrow::after {
+    content: attr(data-page);
+    position: absolute;
+    white-space: nowrap;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #212f3c;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-arrow.prev::after {
+    left: calc(100% + 10px);
+    transform: translateX(-10px);
+}
+
+.nav-arrow.next::after {
+    right: calc(100% + 10px);
+    transform: translateX(10px);
+}
+
+.nav-arrow:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.nav-arrow.prev {
+    left: 30px;
+}
+
+.nav-arrow.next {
+    right: 30px;
+}
+
+/* Arrow icons */
+.nav-arrow::before {
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-arrow.prev::before {
+    transform: rotate(-135deg);
+    margin-left: 5px;
+}
+
+.nav-arrow.next::before {
+    transform: rotate(45deg);
+    margin-right: 5px;
+}
+
+/* Show on edge hover */
+.edge-hover-left .nav-arrow.prev,
+.edge-hover-right .nav-arrow.next {
+    opacity: 1;
+}
+
+/* Context-specific display */
+body.home .nav-arrow.prev {
+    display: none;
+}
+
+body.collector .nav-arrow.next {
+    display: none;
+}
+
+/* Show arrows when hovering near edges */
+@media (hover: hover) {
+    .nav-arrow {
+        opacity: 0;
+    }
+    
+    .nav-arrow:hover,
+    .nav-arrow:focus {
+        opacity: 1;
+    }
+    
+    /* Show on edge hover */
+    .edge-hover-left .nav-arrow.prev,
+    .edge-hover-right .nav-arrow.next {
+        opacity: 1;
+    }
 }

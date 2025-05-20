@@ -139,23 +139,40 @@ window.addEventListener('scroll', function() {
 });
 
 window.addEventListener('DOMContentLoaded', function() {
-    if (!document.getElementById('scroll-progress-bar')) {
-        const bar = document.createElement('div');
-        bar.id = 'scroll-progress-bar';
-        document.body.appendChild(bar);
-    }
-    
-    // Create scroll to top button
-    const scrollButton = document.createElement('button');
-    scrollButton.id = 'scroll-to-top';
-    scrollButton.innerHTML = '↑';
-    scrollButton.addEventListener('click', () => {
+    // Create back to top button
+    const backToTop = document.createElement('div');
+    backToTop.id = 'scroll-to-top';
+    backToTop.setAttribute('data-page', 'Back to Top');
+    backToTop.innerHTML = '↑';
+    document.body.appendChild(backToTop);
+
+    // Progress bar
+    const progressBar = document.createElement('div');
+    progressBar.id = 'scroll-progress-bar';
+    document.body.appendChild(progressBar);
+
+    // Show/hide back to top button and update progress bar
+    window.addEventListener('scroll', function() {
+        const scrolled = window.scrollY;
+        const maxHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrolled / maxHeight) * 100;
+
+        progressBar.style.width = scrollPercent + '%';
+
+        if (scrolled > 300) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    backToTop.addEventListener('click', function() {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
     });
-    document.body.appendChild(scrollButton);
 
     // Add smooth scroll functionality to all elements with onclick="document.getElementById('...').scrollIntoView"
     document.querySelectorAll('[onclick*="scrollIntoView"]').forEach(element => {
