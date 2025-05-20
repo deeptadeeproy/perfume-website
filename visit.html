@@ -26,9 +26,19 @@
     <script src="js/common.js"></script>
     <script src="js/visit.js"></script>
     <script src="js/navigation.js"></script>
+    <style>
+        body {
+            overflow: hidden;
+            height: 100vh;
+        }
+        .content-wrapper {
+            height: calc(100vh - 120px);
+            margin-top: 120px;
+        }
+    </style>
 </head>
 <body class="bg-brand-light">
-    <nav class="shadow-md">
+    <nav class="shadow-md fixed w-full top-0 z-50">
         <div class="container mx-auto px-6 pr-3 py-4">
             <div class="flex items-center">
                 <a href="index.html" class="text-2xl font-semibold text-brand-gray hover:text-brand-taupe transition-colors duration-200 brand-link">
@@ -47,34 +57,36 @@
             </div>
         </div>
     </nav>
-    <section class="min-h-screen flex items-center justify-center bg-brand-light">
-        <div class="flex flex-row w-full max-w-6xl mx-auto h-[75vh] px-8">
-            <div class="flex-1 h-[80vh] overflow-hidden flex items-center justify-center">
-                <div class="aspect-square h-[80vh]">
-                    <img src="assets/maison_shop_interior.jpg" alt="Atelier" class="h-full w-full object-cover">
+    <div class="content-wrapper">
+        <section class="h-full flex items-center justify-center bg-brand-light">
+            <div class="flex flex-row w-full max-w-6xl mx-auto h-full px-8">
+                <div class="flex-1 h-full overflow-hidden flex items-center justify-center">
+                    <div class="aspect-square h-full">
+                        <img src="assets/maison_shop_interior.jpg" alt="Atelier" class="h-full w-full object-cover">
+                    </div>
+                </div>
+                <div class="flex-1 h-full ml-8" style="background: rgba(240,236,226,0.8);">
+                    <div class="w-full h-full p-8 flex flex-col items-center shadow-lg-blk">
+                        <h2 class="text-xl md:text-2xl font-semibold text-brand-gray mb-6 text-center">We invite you to experience our atelier firsthand.<br><br>SCHEDULE A VISIT</h2>
+                        <form class="w-full flex flex-col gap-5 visit-form overflow-y-auto px-2">
+                            <div>
+                                <label for="name" class="block text-brand-gray mb-2 font-medium">Name</label>
+                                <input type="text" id="name" name="name" required class="w-full px-0 py-3 border-0 border-b-2 border-brand-cream focus:outline-none focus:border-brand-taupe bg-transparent placeholder-brand-taupe" placeholder="Your Name" style="border-radius: 0;">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-brand-gray mb-2 font-medium">Email</label>
+                                <input type="email" id="email" name="email" required class="w-full px-0 py-3 border-0 border-b-2 border-brand-cream focus:outline-none focus:border-brand-taupe bg-transparent placeholder-brand-taupe" placeholder="you@email.com" style="border-radius: 0;">
+                            </div>
+                            <div>
+                                <label for="datetime" class="block text-brand-gray mb-2 font-medium">Preferred date and time</label>
+                                <input type="text" id="datetime" name="datetime" required class="w-full px-0 py-3 border-0 border-b-2 border-brand-cream focus:outline-none focus:border-brand-taupe bg-transparent placeholder-brand-taupe" placeholder="Select date and time" style="border-radius: 0;">
+                            </div>
+                            <button type="submit" class="mt-4 bg-brand-gray text-white py-3 w-full font-semibold hover:bg-brand-taupe transition-colors" style="border-radius: 0;">Request Visit</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div class="flex-1 h-[80vh] ml-8" style="background: rgba(240,236,226,0.8);">
-                <div class="w-full h-[80vh] p-8 flex flex-col items-center shadow-lg-blk overflow-hidden">
-                    <h2 class="text-xl md:text-2xl font-semibold text-brand-gray mb-6 text-center">We invite you to experience our atelier firsthand.<br><br>SCHEDULE A VISIT</h2>
-                    <form class="w-full flex flex-col gap-5 visit-form overflow-y-auto px-2">
-                        <div>
-                            <label for="name" class="block text-brand-gray mb-2 font-medium">Name</label>
-                            <input type="text" id="name" name="name" required class="w-full px-0 py-3 border-0 border-b-2 border-brand-cream focus:outline-none focus:border-brand-taupe bg-transparent placeholder-brand-taupe" placeholder="Your Name" style="border-radius: 0;">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-brand-gray mb-2 font-medium">Email</label>
-                            <input type="email" id="email" name="email" required class="w-full px-0 py-3 border-0 border-b-2 border-brand-cream focus:outline-none focus:border-brand-taupe bg-transparent placeholder-brand-taupe" placeholder="you@email.com" style="border-radius: 0;">
-                        </div>
-                        <div>
-                            <label for="datetime" class="block text-brand-gray mb-2 font-medium">Preferred date and time</label>
-                            <input type="text" id="datetime" name="datetime" required class="w-full px-0 py-3 border-0 border-b-2 border-brand-cream focus:outline-none focus:border-brand-taupe bg-transparent placeholder-brand-taupe" placeholder="Select date and time" style="border-radius: 0;">
-                        </div>
-                        <button type="submit" class="mt-4 bg-brand-gray text-white py-3 w-full font-semibold hover:bg-brand-taupe transition-colors" style="border-radius: 0;">Request Visit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
 </body>
 </html> 

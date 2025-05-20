@@ -511,15 +511,14 @@ nav.nav-hidden {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: #596e79;
     opacity: 0;
     transition: all 0.3s ease;
     cursor: pointer;
     z-index: 1000;
-    background-color: #c7b198;
-    border-radius: 50%;
     text-decoration: none;
     visibility: hidden;
+    font-size: 24px;
 }
 
 .nav-arrow.visible {
@@ -528,19 +527,32 @@ nav.nav-hidden {
 }
 
 .nav-arrow:hover {
-    background-color: #596e79;
+    color: #c7b198;
 }
 
+/* Remove the old arrow styles */
 .nav-arrow::before {
-    content: '';
-    display: block;
-    width: 10px;
-    height: 10px;
-    border-top: 2px solid currentColor;
-    border-right: 2px solid currentColor;
-    transition: all 0.3s ease;
+    display: none;
 }
 
+.nav-arrow.prev::before {
+    display: none;
+}
+
+.nav-arrow.next::before {
+    display: none;
+}
+
+/* Positioning */
+.nav-arrow.prev {
+    left: 30px;
+}
+
+.nav-arrow.next {
+    right: 30px;
+}
+
+/* Tooltips */
 .nav-arrow::after {
     content: attr(data-page);
     position: absolute;
@@ -568,35 +580,6 @@ nav.nav-hidden {
 .nav-arrow:hover::after {
     opacity: 1;
     transform: translateX(0);
-}
-
-.nav-arrow.prev {
-    left: 30px;
-}
-
-.nav-arrow.next {
-    right: 30px;
-}
-
-/* Arrow icons */
-.nav-arrow::before {
-    content: '';
-    display: block;
-    width: 12px;
-    height: 12px;
-    border-top: 2px solid currentColor;
-    border-right: 2px solid currentColor;
-    transition: all 0.3s ease-in-out;
-}
-
-.nav-arrow.prev::before {
-    transform: rotate(-135deg);
-    margin-left: 5px;
-}
-
-.nav-arrow.next::before {
-    transform: rotate(45deg);
-    margin-right: 5px;
 }
 
 /* Show on edge hover */
