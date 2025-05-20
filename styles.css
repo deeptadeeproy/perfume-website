@@ -396,32 +396,64 @@ nav {
     position: fixed;
     width: 100%;
     top: 0;
-    transition: transform 0.3s ease-in-out;
     z-index: 1000;
     height: 120px;
-    background: rgba(255, 255, 255, 0.65);
+    background-color: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(5px);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    color: #212f3c;
+}
+
+/* Only change background on navbar hover or when hidden */
+nav:hover,
+nav.nav-hidden {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+nav .container,
+nav .flex,
+nav .space-x-8 {
+    background-color: transparent !important;
 }
 
 nav .container {
     height: 100%;
+    width: 100%;
 }
 
 nav .flex {
     height: 100%;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding-top: 12px;
     padding-bottom: 12px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
 }
 
 nav a {
     display: inline-flex;
     align-items: center;
+    color: inherit;
 }
 
 nav .brand-link {
     margin-bottom: 12px;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, margin 0.3s ease-in-out;
+    position: relative;
+    transform-origin: top center;
+    transform: translateY(0);
+}
+
+nav.nav-hidden .brand-link {
+    opacity: 0;
+    transform: translateY(-100%);
+    margin-bottom: 0;
+    position: absolute;
+    top: 12px;
 }
 
 nav .space-x-8 {
@@ -433,5 +465,16 @@ nav .space-x-8 {
 }
 
 nav.nav-hidden {
-    transform: translateY(-100%);
+    height: 60px;
+}
+
+nav.nav-hidden .flex {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+nav .space-x-8:hover ~ nav,
+nav .space-x-8:hover,
+nav.nav-hidden {
+    background: rgba(255, 255, 255, 1);
 }
