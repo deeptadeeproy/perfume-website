@@ -29,11 +29,12 @@
     <!-- Hero Section with Video -->
     <section class="relative h-screen hero-margin overflow-hidden">
         <div class="hero-bw absolute inset-0"></div>
-        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-40 z-1"></div>
         <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
             <h1 class="text-5xl text-white mb-6 tracking-wide">Bespoke Creations</h1>
             <p class="hero-subtitle text-brand-cream max-w-3xl mx-auto">Your personal fragrance journey begins here</p>
         </div>
+        <div class="hero-down-arrow z-30" onclick="document.querySelector('.intro-section').scrollIntoView({ behavior: 'smooth' });" aria-label="Scroll to introduction"></div>
     </section>
 
     <!-- Introduction Section -->

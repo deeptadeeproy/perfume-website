@@ -614,3 +614,45 @@ body.collector .nav-arrow.next {
         opacity: 1;
     }
 }
+
+/* Down Arrow in Hero Section */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(10px);
+    }
+}
+
+.hero-down-arrow {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 30;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    pointer-events: auto;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.hero-down-arrow::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: rotate(-45deg);
+    left: 10px;
+    top: 4px;
+    pointer-events: none;
+}
+
+.hero-down-arrow:hover {
+    opacity: 1;
+}
