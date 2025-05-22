@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: openresty/openresty:alpine
+    ports:
+      - "32770:80"
+    volumes:
+      - ./nginx/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+      - ./nginx/cache.lua:/etc/nginx/cache.lua
+      - .:/usr/local/openresty/nginx/html:ro
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6380:6379"
+    restart: unless-stopped

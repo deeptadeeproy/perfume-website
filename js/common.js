@@ -41,7 +41,10 @@ const assetsToPreload = {
     ]
 };
 
-function preloadAssets() {
+// Initialize AssetManager
+const assetManager = new AssetManager();
+
+async function preloadAssets() {
     // Preload images with priority
     const priorityImages = [
         'assets/maison_shop_interior.jpg',
@@ -51,47 +54,61 @@ function preloadAssets() {
     ];
 
     // First load priority images
-    priorityImages.forEach(imageUrl => {
-        const img = new Image();
-        img.importance = 'high';
-        img.src = imageUrl;
-    });
+    for (const imageUrl of priorityImages) {
+        try {
+            const cachedUrl = await assetManager.getCachedAsset(imageUrl);
+            const img = new Image();
+            img.importance = 'high';
+            img.src = cachedUrl;
+        } catch (error) {
+            console.warn(`Failed to load priority image ${imageUrl}:`, error);
+        }
+    }
 
     // Then load remaining images
-    assetsToPreload.images
-        .filter(img => !priorityImages.includes(img))
-        .forEach(imageUrl => {
+    const remainingImages = assetsToPreload.images.filter(img => !priorityImages.includes(img));
+    for (const imageUrl of remainingImages) {
+        try {
+            const cachedUrl = await assetManager.getCachedAsset(imageUrl);
             const img = new Image();
             img.loading = 'lazy';
-            img.src = imageUrl;
-        });
+            img.src = cachedUrl;
+        } catch (error) {
+            console.warn(`Failed to load image ${imageUrl}:`, error);
+        }
+    }
 
     // Preload videos with reduced priority
-    assetsToPreload.videos.forEach(videoUrl => {
-        const video = document.createElement('video');
-        const source = document.createElement('source');
-        
-        video.style.display = 'none';
-        video.preload = 'metadata'; // Start with metadata only
-        source.type = 'video/mp4';
-        source.src = videoUrl;
-        
-        video.appendChild(source);
-        
-        // Once metadata is loaded, start loading the full video
-        video.onloadedmetadata = () => {
-            video.preload = 'auto';
-        };
-        
-        // Remove the video element once loaded
-        video.onloadeddata = () => {
-            if (video.parentNode) {
-                video.parentNode.removeChild(video);
-            }
-        };
-        
-        document.body.appendChild(video);
-    });
+    for (const videoUrl of assetsToPreload.videos) {
+        try {
+            const cachedUrl = await assetManager.getCachedAsset(videoUrl);
+            const video = document.createElement('video');
+            const source = document.createElement('source');
+            
+            video.style.display = 'none';
+            video.preload = 'metadata'; // Start with metadata only
+            source.type = 'video/mp4';
+            source.src = cachedUrl;
+            
+            video.appendChild(source);
+            
+            // Once metadata is loaded, start loading the full video
+            video.onloadedmetadata = () => {
+                video.preload = 'auto';
+            };
+            
+            // Remove the video element once loaded
+            video.onloadeddata = () => {
+                if (video.parentNode) {
+                    video.parentNode.removeChild(video);
+                }
+            };
+            
+            document.body.appendChild(video);
+        } catch (error) {
+            console.warn(`Failed to load video ${videoUrl}:`, error);
+        }
+    }
 }
 
 // Start preloading assets after a short delay to not block initial page load
