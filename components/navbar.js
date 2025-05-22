@@ -39,6 +39,13 @@ class Navbar {
         links.forEach(link => {
             link.addEventListener('click', (e) => {
                 const isExternalLink = link.getAttribute('href').startsWith('http');
+                const isCurrentPage = link.getAttribute('href') === this.currentPage;
+                
+                if (isCurrentPage) {
+                    e.preventDefault(); // Prevent navigation if it's the current page
+                    return;
+                }
+                
                 if (!isExternalLink) {
                     e.preventDefault();
                     overlay.classList.add('active');
