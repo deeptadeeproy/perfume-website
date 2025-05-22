@@ -15,6 +15,43 @@ class Navbar {
         this.currentPage = window.location.pathname.split('/').pop() || 'index.html';
     }
 
+    createLoadingOverlay() {
+        const overlay = document.createElement('div');
+        overlay.className = 'loading-overlay';
+        
+        const text = document.createElement('div');
+        text.className = 'loading-text';
+        text.textContent = "Maison de L'Âme";
+        
+        // Add span for bottom and left borders
+        const span = document.createElement('span');
+        text.appendChild(span);
+        
+        overlay.appendChild(text);
+        document.body.appendChild(overlay);
+        return overlay;
+    }
+
+    handleNavigation() {
+        const links = document.querySelectorAll('nav a');
+        const overlay = this.createLoadingOverlay();
+
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const isExternalLink = link.getAttribute('href').startsWith('http');
+                if (!isExternalLink) {
+                    e.preventDefault();
+                    overlay.classList.add('active');
+                    
+                    // Navigate to the new page after animation
+                    setTimeout(() => {
+                        window.location.href = link.href;
+                    }, 2000); // Adjust timing to match animation duration
+                }
+            });
+        });
+    }
+
     getNavHTML() {
         return `
             <nav class="shadow-md">
@@ -70,6 +107,7 @@ class Navbar {
         // Insert the navbar at the start of the body
         document.body.insertAdjacentHTML('afterbegin', this.getNavHTML());
         this.initScrollBehavior();
+        this.handleNavigation();
     }
 }
 
