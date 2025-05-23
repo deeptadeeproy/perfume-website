@@ -213,33 +213,6 @@ body {
 html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
 html, body { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* Progress bar styles */
-#scroll-progress-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 3px;
-    width: 0;
-    z-index: 50;
-    background: #ffebbb;
-    /* box-shadow: 0 0 12px 2px #ffebbb, 0 0 24px 4px #ffebbb; */
-    border-radius: 0 8px 8px 0;
-    transition: width 0.2s cubic-bezier(.4,0,.2,1);
-} 
-
-.visit-form {
-    height: 732px;
-    width: 488px;
-}
-
-.bottom-15 {
-    bottom: 3.75rem;
-}
-
-.text-brand-font-nav {
-    font-size: larger;
-}
-
 /* Scroll to top button styles */
 #scroll-to-top {
     position: fixed;
@@ -302,6 +275,11 @@ html, body { -ms-overflow-style: none; scrollbar-width: none; }
 
 .brand-link:hover {
     color: #8b7355 !important;
+}
+
+.text-brand-font-nav {
+    font-size: 1.25rem !important;
+    letter-spacing: 0.025em;
 }
 
 .hero-bw {

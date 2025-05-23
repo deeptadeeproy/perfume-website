@@ -114,84 +114,80 @@ async function preloadAssets() {
 // Start preloading assets after a short delay to not block initial page load
 setTimeout(preloadAssets, 1000);
 
-// Navbar scroll behavior
-let lastScrollY = window.scrollY;
-let ticking = false;
-
-window.addEventListener('scroll', function() {
-    if (!ticking) {
-        window.requestAnimationFrame(function() {
-            const navbar = document.querySelector('nav');
-            const currentScrollY = window.scrollY;
-            const scrollDiff = currentScrollY - lastScrollY;
-            
-            // Always show navbar at top of page, otherwise show/hide based on scroll direction
-            if (currentScrollY === 0) {
-                navbar.classList.remove('nav-hidden');
-            } else if (scrollDiff > 2) { // Scrolling down
-                navbar.classList.add('nav-hidden');
-            } else if (scrollDiff < -2) { // Scrolling up
-                navbar.classList.remove('nav-hidden');
-            }
-            
-            lastScrollY = currentScrollY;
-            ticking = false;
-            
-            // Scroll Progress Bar
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrolled = (currentScrollY / docHeight) * 100;
-            document.getElementById('scroll-progress-bar').style.width = scrolled + '%';
-            
-            // Show/hide scroll to top button
-            const scrollButton = document.getElementById('scroll-to-top');
-            if (currentScrollY > 500) {
-                scrollButton.classList.add('visible');
-            } else {
-                scrollButton.classList.remove('visible');
-            }
-        });
-        
-        ticking = true;
-    }
-});
-
-window.addEventListener('DOMContentLoaded', function() {
-    // Create back to top button
+// Create and initialize back to top button
+function createBackToTop() {
+    if (document.getElementById('scroll-to-top')) return;
+    
     const backToTop = document.createElement('div');
     backToTop.id = 'scroll-to-top';
     backToTop.setAttribute('data-page', 'Back to Top');
     backToTop.innerHTML = '↑';
-    document.body.appendChild(backToTop);
-
-    // Progress bar
-    const progressBar = document.createElement('div');
-    progressBar.id = 'scroll-progress-bar';
-    document.body.appendChild(progressBar);
-
-    // Show/hide back to top button and update progress bar
-    window.addEventListener('scroll', function() {
-        const scrolled = window.scrollY;
-        const maxHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollPercent = (scrolled / maxHeight) * 100;
-
-        progressBar.style.width = scrollPercent + '%';
-
-        if (scrolled > 300) {
-            backToTop.classList.add('visible');
-        } else {
-            backToTop.classList.remove('visible');
-        }
-    });
-
-    // Scroll to top when button is clicked
-    backToTop.addEventListener('click', function() {
+    
+    // Add click event to back to top button
+    backToTop.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
     });
+    
+    document.body.appendChild(backToTop);
+    return backToTop;
+}
 
-    // Add smooth scroll functionality to all elements with onclick="document.getElementById('...').scrollIntoView"
+// Initialize scroll handling
+function initScrollHandling(backToTop) {
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                const navbar = document.querySelector('nav');
+                const currentScrollY = window.scrollY;
+                const scrollDiff = currentScrollY - lastScrollY;
+                
+                // Always show navbar at top of page, otherwise show/hide based on scroll direction
+                if (currentScrollY === 0) {
+                    navbar.classList.remove('nav-hidden');
+                } else if (scrollDiff > 2) { // Scrolling down
+                    navbar.classList.add('nav-hidden');
+                } else if (scrollDiff < -2) { // Scrolling up
+                    navbar.classList.remove('nav-hidden');
+                }
+                
+                lastScrollY = currentScrollY;
+                
+                // Show/hide back to top button
+                if (currentScrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+                
+                ticking = false;
+            });
+            
+            ticking = true;
+        }
+    });
+}
+
+// Initialize everything
+function init() {
+    const backToTop = createBackToTop();
+    initScrollHandling(backToTop);
+}
+
+// Run initialization
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}
+
+// Add smooth scroll functionality
+document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('[onclick*="scrollIntoView"]').forEach(element => {
         element.addEventListener('click', function(e) {
             e.preventDefault();
